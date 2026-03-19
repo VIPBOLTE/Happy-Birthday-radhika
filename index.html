@@ -204,30 +204,39 @@ totalPesan = totalSlide;
     }
   
   async function initengahan(){
+  let attempts = 0;
+
+async function initengahan(){
     ftAwal.style="display:none";loveIn.style="display:none";ket.style="display:none";
     Content.style = "opacity:1;margin-top:9vh";
     
     var { value: nama } = await swals.fire({
-           title: 'Enter Your Name 🫣🩷', input: 'text',
-       });
-       if(nama && nama.toLowerCase() === "kuku"){
-    window.nama = nama;
-    namaKamu.innerText = nama;
-    namaKamu.style="color:pink";
-    
-    await swals.fire('Welcome! 🎂', 'Cake Party unlocked 😜');
-    
-    setTimeout(inipesan,200);
-    audio.play();
-} else {
-    await swals.fire('Oops! 😅', 'Wrong name! Only special person allowed 💔');
-    
-    // dubara input manga lo
-    initengahan();
+        title: 'Enter Your Name 🫣🩷',
+        input: 'text',
+    });
 
+    if(nama && nama.toLowerCase() === "kuku"){
+        window.nama = nama;
+        namaKamu.innerText = nama;
+        namaKamu.style="color:pink";
+        
+        await swals.fire('Welcome! 🎂', 'Cake Party unlocked 😜');
+        
+        setTimeout(inipesan,200);
+        audio.play();
+    } else {
+        attempts++;
+        
+        if(attempts >= 3){
+            await swals.fire('Blocked 😢', 'Too many wrong attempts!');
+            return;
+        }
+
+        await swals.fire('Oops! 😅', `Wrong name! (${attempts}/3)`);
+        initengahan();
     }
-  }
-  
+}
+    
 aktigeser=0;thisgeser=1;
 document.addEventListener('click', function() {
   if(aktigeser==1){
