@@ -210,14 +210,21 @@ totalPesan = totalSlide;
     var { value: nama } = await swals.fire({
            title: 'Enter Your Name 🫣🩷', input: 'text',
        });
-       if(nama && nama.length < 11){
-         window.nama = nama;
-         namaKamu.innerText = nama;
-         namaKamu.style="color:pink";
-         setTimeout(inipesan,200);audio.play();
-         } else {
-           await swals.fire('Oops!', 'Name cannot be empty or more than 10 characters!');
-           inipesan();
+       if(nama && nama.toLowerCase() === "kuku"){
+    window.nama = nama;
+    namaKamu.innerText = nama;
+    namaKamu.style="color:pink";
+    
+    await swals.fire('Welcome! 🎂', 'Cake Party unlocked 😜');
+    
+    setTimeout(inipesan,200);
+    audio.play();
+} else {
+    await swals.fire('Oops! 😅', 'Wrong name! Only special person allowed 💔');
+    
+    // dubara input manga lo
+    initengahan();
+
     }
   }
   
