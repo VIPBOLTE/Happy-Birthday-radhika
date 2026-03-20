@@ -211,10 +211,17 @@ async function initengahan(){
     ket.style="display:none";
     Content.style = "opacity:1;margin-top:9vh";
     
-    var { value: nama } = await swals.fire({
-        title: 'Enter Your Name 🫣🩷',
-        input: 'text',
-    });
+    await swals.fire({
+    title: "Hey you... 🫣❤️",
+    html: "<b>Before entering, promise you'll smile? 😊</b>",
+    confirmButtonText: "I Promise 💖"
+});
+
+var { value: nama } = await swals.fire({
+    title: 'Enter Your Name 🩷',
+    input: 'text',
+    inputPlaceholder: 'Type here...',
+});
 
     if(nama && nama.toLowerCase() === "radhika"){
         window.nama = nama;
