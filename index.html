@@ -275,7 +275,9 @@ document.addEventListener('click', function() {
     keterangan.style="";
     if(thisgeser>totalPesan){document.getElementById('dots-container').style="";} else {moveToNextDot()}
   }
-  if(thisgeser==100){setTimeout(aksibalas,150);}
+  if(thisgeser == totalPesan){
+    setTimeout(aksibalas, 500);
+}
 });
 
   async function inipesan(){nama = "Kamu";window.nama = nama;mulainama();}  
