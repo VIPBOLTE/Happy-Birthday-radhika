@@ -240,7 +240,12 @@ var { value: nama } = await swals.fire({
             return;
         }
 
-        await swals.fire('Oops! 😅', `Wrong name! (${attempts}/3)`);
+        await swals.fire({
+    title: "Are you sure? 🤨",
+    text: "Hmm... that doesn't feel right 😜",
+    footer: `Attempt ${attempts}/3`,
+    icon: "question"
+});    
         initengahan();
     }
 }
